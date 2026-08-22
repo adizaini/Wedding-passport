@@ -22,7 +22,14 @@
 </div>
 <audio id="audio" loop preload="auto"><source src="assets/music/backsound.mp3" type="audio/mpeg"></audio><button class="music" id="music">♪</button>
 <script>
-const $=x=>document.getElementById(x);$('open').onclick=()=>$('invitation').scrollIntoView({behavior:'smooth'});
+const openPassport = document.getElementById('openPassport');
+const invitation = document.getElementById('inv');
+
+openPassport.addEventListener('click', () => {
+    invitation.scrollIntoView({
+        behavior: 'smooth'
+    });
+});
 const target=new Date('2026-11-27T13:00:00+07:00').getTime();setInterval(()=>{let x=Math.max(0,target-Date.now()),d=Math.floor(x/864e5);x%=864e5;let h=Math.floor(x/36e5);x%=36e5;let m=Math.floor(x/6e4);let s=Math.floor(x/1e3)%60;[['d',d],['h',h],['m',m],['s',s]].forEach(a=>$(a[0]).textContent=String(a[1]).padStart(2,'0'))},1000);
 document.querySelectorAll('.copy').forEach(b=>b.onclick=async()=>{let t=b.dataset.id?$(b.dataset.id).textContent.trim():'Desa Pendil, RT 009 RW 002, Kecamatan Banyuanyar, Kabupaten Probolinggo, Jawa Timur, Indonesia.';if(t.includes('X'))return alert('Nomor belum diisi.');await navigator.clipboard.writeText(t);let o=b.textContent;b.textContent='COPIED ✓';setTimeout(()=>b.textContent=o,1500)});
 $('music').onclick=async()=>{try{$('audio').paused?await $('audio').play():$('audio').pause()}catch(e){alert('Masukkan file MP3 ke assets/music/backsound.mp3')}};
