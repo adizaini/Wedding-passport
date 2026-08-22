@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wedding of Adi & Riska</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#10283b;
+  --paper:#fbf8ef;
+  --cream:#e9e1d1;
+  --red:#9f3e3b;
+  --gold:#c4a15a;
+  --ink:#243746;
+  --muted:#6c7780;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:#d9d2c3;
+  color:var(--ink);
+  font-family:Poppins,Arial,sans-serif;
+}
+
+body.locked{
+  overflow:hidden;
+}
+
+.page{
+  max-width:1050px;
+  margin:auto;
+  min-height:100vh;
+  background:var(--paper);
+  box-shadow:0 0 35px #0002;
+}
+
+/* ================= COVER ================= */
+
+.cover{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:25px;
+  background:linear-gradient(135deg,#0b2030,#173b52);
+  transition:
+    opacity .8s ease,
+    transform .9s ease,
+    visibility .8s ease;
+}
+
+.cover.opened{
+  opacity:0;
+  transform:scale(1.08) rotate(1deg);
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.passport{
+  width:min(760px,94vw);
+  min-height:510px;
+  border-radius:16px;
+  padding:38px;
+  color:#eadfbd;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(145deg,#173b52,#0d283b);
+  box-shadow:0 25px 60px #0008,inset 0 0 0 1px #ffffff20;
+  transform:rotate(-1deg);
+}
+
+.passport:before{
+  content:"";
+  position:absolute;
+  inset:16px;
+  border:1px solid #d7c58c66;
+  border-radius:9px;
+}
+
+.passport:after{
+  content:"";
+  position:absolute;
+  width:260px;
+  height:260px;
+  right:-80px;
+  bottom:-100px;
+  border:1px solid #d7c58c25;
+  border-radius:50%;
+  box-shadow:
+    0 0 0 25px #d7c58c10,
+    0 0 0 50px #d7c58c08;
+}
+
+.topline{
+  display:flex;
+  justify-content:space-between;
+  position:relative;
+  z-index:2;
+  font:500 11px "DM Mono";
+  letter-spacing:2px;
+}
+
+.eagle{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  font-size:48px;
+  margin:40px 0 5px;
+}
+
+.cover h1{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  font:600 clamp(40px,8vw,72px) "Playfair Display";
+  margin:0;
+}
+
+.sub{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  font:12px "DM Mono";
+  letter-spacing:4px;
+  margin:12px 0 35px;
+}
+
+.code{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  font:12px "DM Mono";
+  letter-spacing:3px;
+  color:#cdbb83;
+}
+
+.stamp{
+  position:absolute;
+  z-index:2;
+  right:45px;
+  top:130px;
+  width:100px;
+  height:100px;
+  border:2px dashed var(--red);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  color:#b24c48;
+  font:10px "DM Mono";
+  transform:rotate(13deg);
+}
+
+.open{
+  position:relative;
+  z-index:3;
+  display:block;
+  margin:32px auto 0;
+  padding:13px 24px;
+  border:0;
+  border-radius:5px;
+  background:#eadfbd;
+  color:#17364b;
+  font-weight:600;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.open:hover{
+  background:white;
+  transform:translateY(-2px);
+}
+
+/* ================= CONTENT ================= */
+
+#invitation{
+  opacity:0;
+  transform:translateY(35px);
+  transition:
+    opacity .8s ease .25s,
+    transform .8s ease .25s;
+}
+
+#invitation.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+section{
+  padding:70px 7%;
+}
+
+.kicker{
+  font:500 11px "DM Mono";
+  letter-spacing:3px;
+  color:var(--red);
+  text-transform:uppercase;
+}
+
+h2{
+  font:600 clamp(30px,5vw,48px) "Playfair Display";
+  color:var(--navy);
+  margin:8px 0 18px;
+}
+
+.lead{
+  color:var(--muted);
+  line-height:1.9;
+  max-width:680px;
+}
+
+.names{
+  text-align:center;
+}
+
+.hero-photo{
+  display:block;
+  width:min(520px,100%);
+  aspect-ratio:4/5;
+  margin:30px auto;
+  border:12px solid white;
+  box-shadow:0 15px 35px #0002;
+  object-fit:cover;
+  background:#ddd;
+}
+
+.big{
+  font:600 clamp(30px,5vw,52px) "Playfair Display";
+  color:var(--navy);
+}
+
+.amp{
+  font:italic 28px "Playfair Display";
+  color:var(--red);
+  margin:5px;
+}
+
+.quote{
+  max-width:760px;
+  margin:40px auto 0;
+  padding:28px;
+  text-align:center;
+  border-block:1px solid #cbbf9f;
+}
+
+.arabic{
+  font-size:24px;
+  line-height:2;
+  color:var(--navy);
+}
+
+.translation{
+  font-size:13px;
+  line-height:1.8;
+  color:var(--muted);
+  margin-top:12px;
+}
+
+/* ================= CARDS ================= */
+
+.pass{
+  background:var(--cream);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+
+.card{
+  background:#fffdf7;
+  border:1px solid #d8ceb9;
+  padding:28px;
+  box-shadow:0 8px 22px #0000000a;
+}
+
+.card h3{
+  font:600 24px "Playfair Display";
+  color:var(--navy);
+  margin:8px 0 12px;
+}
+
+.info{
+  color:var(--muted);
+  line-height:1.9;
+  font-size:14px;
+}
+
+/* ================= COUNTDOWN ================= */
+
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:30px 0;
+}
+
+.timebox{
+  min-width:70px;
+  padding:12px;
+  text-align:center;
+  background:#fffdf7;
+  border:1px solid #cfc4ae;
+}
+
+.timebox b{
+  display:block;
+  font:600 26px "Playfair Display";
+  color:var(--navy);
+}
+
+.timebox span{
+  font:9px "DM Mono";
+  color:var(--red);
+}
+
+/* ================= BOARDING PASS ================= */
+
+.ticket{
+  max-width:850px;
+  margin:auto;
+  background:#fffdf7;
+  border:1px solid #cfc4ae;
+  display:grid;
+  grid-template-columns:1fr 170px;
+}
+
+.ticket-main{
+  padding:35px;
+}
+
+.ticket-side{
+  border-left:1px dashed #aaa;
+  background:#f0eadc;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  font-size:55px;
+  color:var(--red);
+}
+
+.route{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:25px 0;
+}
+
+.route strong{
+  font:600 32px "Playfair Display";
+  color:var(--navy);
+}
+
+.route-line{
+  height:1px;
+  background:#c7b996;
+  flex:1;
+  margin:0 18px;
+}
+
+.map{
+  display:inline-block;
+  padding:12px 20px;
+  margin-top:12px;
+  border:1px solid var(--navy);
+  color:var(--navy);
+  text-decoration:none;
+  font-size:12px;
+  font-weight:600;
+}
+
+/* ================= GIFT ================= */
+
+.address{
+  line-height:1.9;
+  color:var(--ink);
+}
+
+.copy{
+  padding:10px 16px;
+  border:1px solid var(--navy);
+  background:transparent;
+  color:var(--navy);
+  margin-top:12px;
+  cursor:pointer;
+}
+
+.msg{
+  min-height:18px;
+  font-size:12px;
+  color:var(--red);
+  margin-top:6px;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.gallery img{
+  width:100%;
+  aspect-ratio:1;
+  object-fit:cover;
+  border:6px solid white;
+  box-shadow:0 5px 15px #0002;
+}
+
+/* ================= MUSIC ================= */
+
+.music{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:0;
+  background:var(--navy);
+  color:#eadfbd;
+  z-index:20;
+  cursor:pointer;
+  box-shadow:0 5px 20px #0004;
+}
+
+.music.playing{
+  animation:spin 4s linear infinite;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  text-align:center;
+  background:var(--navy);
+  color:#eadfbd;
+}
+
+.footer h2{
+  color:#eadfbd;
+}
+
+.footer p{
+  color:#c5c0b2;
+  line-height:1.9;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:650px){
+
+  section{
+    padding:55px 6%;
+  }
+
+  .passport{
+    min-height:500px;
+    padding:30px 24px;
+  }
+
+  .stamp{
+    right:20px;
+    top:120px;
+    width:80px;
+    height:80px;
+    font-size:8px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .ticket{
+    grid-template-columns:1fr;
+  }
+
+  .ticket-side{
+    border-left:0;
+    border-top:1px dashed #aaa;
+    padding:25px;
+  }
+
+  .gallery{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .timebox{
+    min-width:60px;
+  }
+
+  .big{
+    font-size:32px;
+  }
+}
+</style>
+</head>
+
+<body class="locked">
+
+<div class="page">
+
+<!-- ================= COVER ================= -->
+
+<section class="cover" id="cover">
+
+  <div class="passport">
+
+    <div class="topline">
+      <span>REPUBLIC OF LOVE</span>
+      <span>NO. 271126</span>
+    </div>
+
+    <div class="eagle">✦</div>
+
+    <div class="sub">PASSPORT OF</div>
+
+    <h1>Adi &amp; Riska</h1>
+
+    <div class="sub">A LIFETIME JOURNEY</div>
+
+    <div class="stamp">
+      ENTRY<br>
+      TO<br>
+      FOREVER<br>
+      2026
+    </div>
+
+    <div class="code">
+      UTSMN • RSKA • 27 NOV 2026
+    </div>
+
+    <button class="open" id="openPassport">
+      OPEN PASSPORT
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= MAIN INVITATION ================= -->
+
+<div id="invitation">
+
+<!-- MEMPELAI -->
+
+<section>
+
+  <div class="names">
+
+    <div class="kicker">
+      Passenger Information
+    </div>
+
+    <img
+      class="hero-photo"
+      src="assets/images/foto-utama.jpg"
+      alt="Foto Adi dan Riska"
+    >
+
+    <div class="big">
+      Utsman Hadi Zaini
+    </div>
+
+    <div class="amp">&amp;</div>
+
+    <div class="big">
+      Riska Ayu Setyowati
+    </div>
+
+    <p class="lead" style="margin:22px auto">
+      Dengan penuh kebahagiaan, kami mengundang Anda
+      untuk menjadi bagian dari perjalanan baru kami.
+    </p>
+
+  </div>
+
+  <div class="quote">
+
+    <div class="arabic">
+      وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ
+      أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم
+      مَّوَدَّةً وَرَحْمَةً
+    </div>
+
+    <div class="translation">
+      “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia
+      menciptakan untukmu pasangan hidup dari jenismu sendiri
+      supaya kamu merasa tenteram kepadanya, dan dijadikan-Nya
+      di antaramu rasa kasih dan sayang.”
+    </div>
+
+    <div class="kicker" style="margin-top:14px">
+      QS. Ar-Rum: 21
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- COUNTDOWN -->
+
+<section class="pass">
+
+  <div class="kicker">
+    Countdown to Destination
+  </div>
+
+  <h2>
+    Our Big Day
+  </h2>
+
+  <div class="countdown">
+
+    <div class="timebox">
+      <b id="days">00</b>
+      <span>DAYS</span>
+    </div>
+
+    <div class="timebox">
+      <b id="hours">00</b>
+      <span>HOURS</span>
+    </div>
+
+    <div class="timebox">
+      <b id="minutes">00</b>
+      <span>MINUTES</span>
+    </div>
+
+    <div class="timebox">
+      <b id="seconds">00</b>
+      <span>SECONDS</span>
+    </div>
+
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="kicker">Departure</div>
+      <h3>Akad Nikah</h3>
+
+      <div class="info">
+        <b>09 November 2026</b><br>
+        Awal perjalanan kami menuju satu tujuan.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="kicker">Destination</div>
+      <h3>Wedding Reception</h3>
+
+      <div class="info">
+        <b>27 November 2026</b><br>
+        Pukul 13.00 WIB – selesai.
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BOARDING PASS -->
+
+<section>
+
+  <div class="kicker">
+    Boarding Pass
+  </div>
+
+  <h2>
+    Your Invitation
+  </h2>
+
+  <div class="ticket">
+
+    <div class="ticket-main">
+
+      <div class="kicker">
+        WEDDING AIRLINES · ONE WAY TO FOREVER
+      </div>
+
+      <div class="route">
+
+        <strong>ADI</strong>
+
+        <div class="route-line"></div>
+
+        <strong>RISKA</strong>
+
+      </div>
+
+      <div class="grid">
+
+        <div class="info">
+          <b>27 NOV 2026</b>
+        </div>
+
+        <div class="info">
+          <b>13.00 WIB – SELESAI</b>
+        </div>
+
+      </div>
+
+      <a
+        class="map"
+        href="https://maps.google.com/?q=Desa+Pendil+Banyuanyar+Probolinggo+Jawa+Timur"
+        target="_blank"
+        rel="noopener"
+      >
+        OPEN GOOGLE MAPS ↗
+      </a>
+
+    </div>
+
+    <div class="ticket-side">
+      ♥
+      <small>
+        SEAT<br>
+        FOREVER
+      </small>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- WEDDING GIFT -->
+
+<section class="pass">
+
+  <div class="kicker">
+    Gift Passport
+  </div>
+
+  <h2>
+    Wedding Gift
+  </h2>
+
+  <p class="lead">
+    Doa dan kehadiran Anda adalah hadiah terindah bagi kami.
+    Jika ingin memberikan tanda kasih, dapat melalui pilihan berikut.
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+
+      <div class="kicker">
+        Digital Gift
+      </div>
+
+      <h3>BCA</h3>
+
+      <div class="info">
+        No. Rekening<br>
+
+        <b id="bcaNumber">
+          ISI NOMOR REKENING
+        </b>
+
+        <br>
+
+        a.n. Utsman Hadi Zaini
+      </div>
+
+      <button
+        class="copy"
+        data-id="bcaNumber"
+        data-msg="bcaMsg"
+      >
+        COPY NUMBER
+      </button>
+
+      <div class="msg" id="bcaMsg"></div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="kicker">
+        Digital Gift
+      </div>
+
+      <h3>GoPay</h3>
+
+      <div class="info">
+        No. GoPay<br>
+
+        <b id="gopayNumber">
+          ISI NOMOR GOPAY
+        </b>
+
+        <br>
+
+        a.n. Utsman Hadi Zaini
+      </div>
+
+      <button
+        class="copy"
+        data-id="gopayNumber"
+        data-msg="gopayMsg"
+      >
+        COPY NUMBER
+      </button>
+
+      <div class="msg" id="gopayMsg"></div>
+
+    </div>
+
+  </div>
+
+
+  <div class="card" style="margin-top:24px">
+
+    <div class="kicker">
+      Physical Gift
+    </div>
+
+    <h3>
+      Gift Delivery Address
+    </h3>
+
+    <div class="address">
+      Desa Pendil, RT 009 RW 002,<br>
+      Kecamatan Banyuanyar,<br>
+      Kabupaten Probolinggo,<br>
+      Jawa Timur, Indonesia.
+    </div>
+
+    <button class="copy" id="copyAddress">
+      COPY ADDRESS
+    </button>
+
+    <div class="msg" id="addressMsg"></div>
+
+  </div>
+
+</section>
+
+
+<!-- GALERI -->
+
+<section>
+
+  <div class="kicker">
+    Our Memories
+  </div>
+
+  <h2>
+    Travel Gallery
+  </h2>
+
+  <div class="gallery">
+
+    <img src="assets/images/gallery-1.jpg" alt="Foto 1">
+    <img src="assets/images/gallery-2.jpg" alt="Foto 2">
+    <img src="assets/images/gallery-3.jpg" alt="Foto 3">
+    <img src="assets/images/gallery-4.jpg" alt="Foto 4">
+    <img src="assets/images/gallery-5.jpg" alt="Foto 5">
+    <img src="assets/images/gallery-6.jpg" alt="Foto 6">
+
+  </div>
+
+</section>
+
+
+<!-- KELUARGA -->
+
+<section>
+
+  <div class="kicker">
+    Family Passport
+  </div>
+
+  <h2>
+    Our Families
+  </h2>
+
+  <div class="grid">
+
+    <div class="card">
+
+      <div class="kicker">
+        Mempelai Pria
+      </div>
+
+      <h3>
+        Utsman Hadi Zaini
+      </h3>
+
+      <div class="info">
+        Putra dari<br>
+        <b>Bpk. Muhammad Zaini</b><br>
+        &amp;<br>
+        <b>Ibu Yessy Puspita</b>
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="kicker">
+        Mempelai Wanita
+      </div>
+
+      <h3>
+        Riska Ayu Setyowati
+      </h3>
+
+      <div class="info">
+        Putri dari<br>
+        <b>Bpk. Sandi Santoso</b><br>
+        &amp;<br>
+        <b>Ibu Muryati</b>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PENUTUP -->
+
+<section class="footer">
+
+  <div class="kicker" style="color:#c4a15a">
+    End of Passport
+  </div>
+
+  <h2>
+    See You at Our Destination
+  </h2>
+
+  <p>
+    Terima kasih telah menjadi bagian dari perjalanan kami.<br>
+    Sampai bertemu di hari bahagia.
+  </p>
+
+  <b>
+    ADI &amp; RISKA · 27.11.2026
+  </b>
+
+</section>
+
+</div>
+</div>
+
+
+<!-- MUSIC -->
+
+<audio id="music" loop preload="auto">
+  <source src="assets/music/backsound.mp3" type="audio/mpeg">
+</audio>
+
+<button
+  class="music"
+  id="musicButton"
+  aria-label="Putar musik"
+>
+  ♪
+</button>
+
+
+<script>
+
+/* =========================
+   OPEN PASSPORT
+========================= */
+
+const openPassport =
+  document.getElementById("openPassport");
+
+const cover =
+  document.getElementById("cover");
+
+const invitation =
+  document.getElementById("invitation");
+
+openPassport.addEventListener("click", function(){
+
+  cover.classList.add("opened");
+
+  setTimeout(function(){
+
+    document.body.classList.remove("locked");
+
+    invitation.classList.add("show");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  },800);
+
+});
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+const target =
+  new Date("2026-11-27T13:00:00+07:00").getTime();
+
+function countdown(){
+
+  let x =
+    Math.max(0,target-Date.now());
+
+  let days =
+    Math.floor(x/86400000);
+
+  x %= 86400000;
+
+  let hours =
+    Math.floor(x/3600000);
+
+  x %= 3600000;
+
+  let minutes =
+    Math.floor(x/60000);
+
+  let seconds =
+    Math.floor((x%60000)/1000);
+
+  document.getElementById("days").textContent =
+    String(days).padStart(2,"0");
+
+  document.getElementById("hours").textContent =
+    String(hours).padStart(2,"0");
+
+  document.getElementById("minutes").textContent =
+    String(minutes).padStart(2,"0");
+
+  document.getElementById("seconds").textContent =
+    String(seconds).padStart(2,"0");
+
+}
+
+countdown();
+
+setInterval(countdown,1000);
+
+
+/* =========================
+   COPY BCA / GOPAY
+========================= */
+
+document.querySelectorAll(".copy[data-id]").forEach(function(button){
+
+  button.addEventListener("click",async function(){
+
+    const element =
+      document.getElementById(button.dataset.id);
+
+    const value =
+      element.textContent.trim();
+
+    if(value.includes("ISI")){
+
+      alert("Nomor belum diisi.");
+
+      return;
+    }
+
+    try{
+
+      await navigator.clipboard.writeText(value);
+
+      const message =
+        document.getElementById(button.dataset.msg);
+
+      message.textContent =
+        "Berhasil disalin ✓";
+
+      setTimeout(function(){
+
+        message.textContent = "";
+
+      },1500);
+
+    }catch(error){
+
+      alert("Gagal menyalin nomor.");
+
+    }
+
+  });
+
+});
+
+
+/* =========================
+   COPY ADDRESS
+========================= */
+
+document
+.getElementById("copyAddress")
+.addEventListener("click",async function(){
+
+  const address =
+    "Desa Pendil, RT 009 RW 002, Kecamatan Banyuanyar, Kabupaten Probolinggo, Jawa Timur, Indonesia.";
+
+  try{
+
+    await navigator.clipboard.writeText(address);
+
+    document.getElementById("addressMsg")
+      .textContent =
+      "Alamat berhasil disalin ✓";
+
+    setTimeout(function(){
+
+      document.getElementById("addressMsg")
+        .textContent = "";
+
+    },1500);
+
+  }catch(error){
+
+    alert("Gagal menyalin alamat.");
+
+  }
+
+});
+
+
+/* =========================
+   BACKSOUND
+========================= */
+
+const music =
+  document.getElementById("music");
+
+const musicButton =
+  document.getElementById("musicButton");
+
+musicButton.addEventListener("click",async function(){
+
+  try{
+
+    if(music.paused){
+
+      await music.play();
+
+      musicButton.classList.add("playing");
+
+    }else{
+
+      music.pause();
+
+      musicButton.classList.remove("playing");
+
+    }
+
+  }catch(error){
+
+    alert(
+      "Masukkan file assets/music/backsound.mp3 terlebih dahulu."
+    );
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
