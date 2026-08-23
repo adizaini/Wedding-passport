@@ -508,6 +508,25 @@ h2{
     font-size:32px;
   }
 }
+.guest-label{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  font:10px "DM Mono";
+  letter-spacing:3px;
+  color:#cdbb83;
+  margin-top:20px;
+}
+
+.guest-name{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  font:600 clamp(18px,4vw,28px) "Playfair Display";
+  color:#eadfbd;
+  margin-top:6px;
+  padding:0 50px;
+}
 </style>
 </head>
 
@@ -1188,7 +1207,17 @@ musicButton.addEventListener("click",async function(){
   }
 
 });
+const params = new URLSearchParams(window.location.search);
 
+const guest =
+  params.get("to");
+
+if(guest){
+
+  document.getElementById("guestName")
+    .textContent = guest;
+
+}
 </script>
 
 </body>
